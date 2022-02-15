@@ -57,11 +57,8 @@ class Schedule():
     def description(self, phrase):
         return Schedule([course for course in self.courses if re.search(phrase[0],course['description'])])
     
-    def if_independentStudy(self, independent):
-        if (independent):
-            return Schedule([course for course in self.courses if course['independent_study'] == True])
-        else:
-            return Schedule([course for course in self.courses if course['independent_study'] == False])
+    def independentStudy(self, subject):
+        return Schedule([course for course in self.courses if course['subject'] in subject and course['independent_study'] == True])
 
     def code(self, codes):
         if(re.search(" ",codes[0])):

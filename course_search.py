@@ -3,6 +3,7 @@ course_search is a Python script using a terminal based menu to help
 students search for courses they might want to take at Brandeis
 '''
 
+from tkinter import N
 from schedule import Schedule
 import sys
 
@@ -60,12 +61,8 @@ def topmenu():
             phrase = input("enter a phrase of the course description:")
             schedule = schedule.description([phrase])
         elif command in ['n','independent']:
-            ans = input("Find Independent Study course? True or False?")
-            if (ans == "True"):
-                independent = True
-            else:
-                independent = False
-            schedule = schedule.if_independentStudy([independent])
+            subject = input("enter a subject")
+            schedule = schedule.independentStudy([subject])
         else:
             print('command',command,'is not supported')
             continue
