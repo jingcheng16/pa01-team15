@@ -5,5 +5,5 @@
  Jing Chen
  Lu Hao
  Liuling Yu
- Shuyuan Wang shuyuanwang@brandeis.edu
+ Shuyuan Wang
  
