@@ -4,6 +4,7 @@ by filtering, mapping, printing, etc.
 '''
 
 import json
+import re
 
 class Schedule():
     '''
@@ -49,4 +50,27 @@ class Schedule():
         else:
             print("can't sort by "+str(field)+" yet")
             return self
- 
+    def title(self, phrase):
+
+        return Schedule([course for course in self.courses if re.search(phrase[0],course['name'])])
+    
+    def description(self, phrase):
+        return Schedule([course for course in self.courses if re.search(phrase[0],course['description'])])
+    
+    def if_independentStudy(self, independent):
+        if (independent):
+            return Schedule([course for course in self.courses if course['independent_study'] == True])
+        else:
+            return Schedule([course for course in self.courses if course['independent_study'] == False])
+
+    def code(self, codes):
+        if(re.search(" ",codes[0])):
+            return Schedule([course for course in self.courses if re.search(course['subject'], codes[0]) and re.search(course['coursenum'], codes[0])]) 
+        else:
+            return Schedule([course for course in self.courses if course['code'][0] in codes or course['code'][1] in codes]) 
+
+    def instructor(self, instructor):
+        if len(self.lastname(instructor).courses) > 0:
+            return self.lastname(instructor)
+        else:
+            return self.email(instructor)

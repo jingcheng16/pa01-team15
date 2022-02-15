@@ -19,7 +19,7 @@ instructor (filter by instructor)
 subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
-timeofday (filter by day and time, e.g. meets at 11 on Wed)
+independent (filter by whether the course is a independent study)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -47,6 +47,25 @@ def topmenu():
         elif command in ['s','subject']:
             subject = input("enter a subject:")
             schedule = schedule.subject([subject])
+        elif command in ['c','course']:
+            code = input("enter a code:")
+            schedule = schedule.code([code])
+        elif command in ['i','instructor']:
+            instructor = input("enter instructor last name or email:")
+            schedule = schedule.instructor([instructor])
+        elif command in ['l','title']:
+            phrase = input("enter a phrase of the course title:")
+            schedule = schedule.title([phrase])
+        elif command in ['d','description']:
+            phrase = input("enter a phrase of the course description:")
+            schedule = schedule.description([phrase])
+        elif command in ['n','independent']:
+            ans = input("Find Independent Study course? True or False?")
+            if (ans == "True"):
+                independent = True
+            else:
+                independent = False
+            schedule = schedule.if_independentStudy([independent])
         else:
             print('command',command,'is not supported')
             continue
