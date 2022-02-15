@@ -49,4 +49,22 @@ class Schedule():
         else:
             print("can't sort by "+str(field)+" yet")
             return self
- 
+    
+    def title(self, phrase):
+        return Schedule([course for course in self.courses if str(phrase) in course['name']])
+    
+    def description(self, phrase):
+        return Schedule([course for course in self.courses if str(phrase) in course['description']])
+    
+    def if_independentStudy(self, independent):
+        if (independent):
+            return Schedule([course for course in self.courses if course['independent_study'] == True])
+        else:
+            return Schedule([course for course in self.courses if course['independent_study'] == False])
+
+    def code(self, codes):
+        return Schedule([course for course in self.courses if course['code'][0] in codes or course['code'][1] in codes]) 
+
+    def instructor(self, instructor):
+        return Schedule([course for course in self.courses if course['instructor'][1] in instructor 
+        or course['instructor'][2] in instructor]) 
