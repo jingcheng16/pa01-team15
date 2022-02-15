@@ -45,29 +45,33 @@ class Schedule():
         return Schedule([course for course in self.courses if course['subject'] in subjects])
 
     def sort(self,field):
+        ''' sort function sort the courses by their subjects'''
         if field=='subject':
             return Schedule(sorted(self.courses, key= lambda course: course['subject']))
-        else:
-            print("can't sort by "+str(field)+" yet")
-            return self
+        print("can't sort by "+str(field)+" yet")
+        return self
+    
     def title(self, phrase):
-
+        '''title filters the courses by phrase entered by user'''
         return Schedule([course for course in self.courses if re.search(phrase[0],course['name'])])
     
     def description(self, phrase):
+        '''description filters the courses by phrase entered by user'''
         return Schedule([course for course in self.courses if re.search(phrase[0],course['description'])])
     
-    def independentStudy(self, subject):
-        return Schedule([course for course in self.courses if course['subject'] in subject and course['independent_study'] == True])
+    def independent_course(self, subject):
+        '''independent_course filters the courses by if the course is independent study'''
+        return Schedule([course for course in self.courses if course['subject'] in subject and course['independent_study'] is True])
 
     def code(self, codes):
+        '''code filters the courses by code entered by user'''
         if(re.search(" ",codes[0])):
             return Schedule([course for course in self.courses if re.search(course['subject'], codes[0]) and re.search(course['coursenum'], codes[0])]) 
-        else:
-            return Schedule([course for course in self.courses if course['code'][0] in codes or course['code'][1] in codes]) 
+        
+        return Schedule([course for course in self.courses if course['code'][0] in codes or course['code'][1] in codes]) 
 
     def instructor(self, instructor):
+        '''instructor filters the courses by instructor's name and email'''
         if len(self.lastname(instructor).courses) > 0:
             return self.lastname(instructor)
-        else:
-            return self.email(instructor)
+        return self.email(instructor)
