@@ -4,6 +4,6 @@
 ## contributors
  Jing Chen
  Lu Hao
- Liuling Yu
+ Lingyu Liu
  Shuyuan Wang
  
