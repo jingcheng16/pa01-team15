@@ -62,7 +62,7 @@ def topmenu():
             schedule = schedule.description([phrase])
         elif command in ['n','independent']:
             subject = input("enter a subject")
-            schedule = schedule.independentStudy([subject])
+            schedule = schedule.independent_course([subject])
         else:
             print('command',command,'is not supported')
             continue
