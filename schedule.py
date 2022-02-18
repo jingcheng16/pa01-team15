@@ -78,7 +78,7 @@ class Schedule():
     def coursenum(self, phrase):
         '''coursenum filters the courses by its coursenum'''
         return Schedule([course for course in self.courses if re.search(phrase[0],course['coursenum'])])
-    
+
     def detail(self, detail):
         '''course filters the courses by details'''
         return Schedule([course for course in self.courses if re.search(detail[0],course['details'])])
