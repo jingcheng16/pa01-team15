@@ -77,5 +77,6 @@ class Schedule():
         return self.email(instructor)
 
     def detail(self, detail):
-        '''instructor filters the courses by details'''
+        '''course filters the courses by details'''
+        '''test for video'''
         return Schedule([course for course in self.courses if re.search(detail[0],course['details'])])
