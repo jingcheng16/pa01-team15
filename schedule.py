@@ -84,7 +84,9 @@ class Schedule():
         return Schedule([course for course in self.courses if re.search(detail[0],course['details'])])
 
     def coinstructor(self, subject):
+        '''coinstructor filters'''
         return Schedule([course for course in self.courses if course['subject'] in subject and len(course['coinstructors']) > 0])
 
     def type(self, phrase):
+        '''type filters the courses by types'''
         return Schedule([course for course in self.courses if re.search(phrase[0], course["type"])])

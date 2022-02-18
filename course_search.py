@@ -85,7 +85,6 @@ def topmenu():
         for course in schedule.courses[:10]:
             print_course(course)
         print('\n'*3)
-        
     
 def print_course(course):
     '''
