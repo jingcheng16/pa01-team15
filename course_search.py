@@ -68,7 +68,10 @@ def topmenu():
             schedule = schedule.coursenum([phrase])
         elif command in ['d','detail']:
             detail = input("enter a detail")
-            schedule = schedule.independent_course([detail])    
+            schedule = schedule.independent_course([detail])   
+        elif command in ['type']:
+            phrase = input("enter a type:")
+            schedule = schedule.type([phrase])     
         else:
             print('command',command,'is not supported')
             continue
