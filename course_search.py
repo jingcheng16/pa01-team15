@@ -21,6 +21,7 @@ subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
 independent (filter by whether the course is a independent study)
+coinstructor (filter by subject and whether the course has coinstructor)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -68,7 +69,10 @@ def topmenu():
             schedule = schedule.coursenum([phrase])
         elif command in ['d','detail']:
             detail = input("enter a detail")
-            schedule = schedule.independent_course([detail])    
+            schedule = schedule.detail([detail]) 
+        elif command in ['co','coinstructor']:
+            subject = input("enter a subject to find the courses have coinstructor in the subject:")   
+            schedule = schedule.coinstructor([subject])
         else:
             print('command',command,'is not supported')
             continue
