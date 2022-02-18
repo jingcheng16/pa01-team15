@@ -78,7 +78,7 @@ def topmenu():
 
 def print_course(course):
     '''
-    print_course prints a brief description of the course 
+    print_course prints a brief description of the course // test for video
     '''
     print(course['subject'],course['coursenum'],course['section'],
           course['name'],course['term'],course['instructor'])

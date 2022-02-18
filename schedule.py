@@ -78,5 +78,4 @@ class Schedule():
 
     def detail(self, detail):
         '''course filters the courses by details'''
-        '''test for video'''
         return Schedule([course for course in self.courses if re.search(detail[0],course['details'])])
