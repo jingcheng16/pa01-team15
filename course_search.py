@@ -68,10 +68,10 @@ def topmenu():
             schedule = schedule.coursenum([phrase])
         elif command in ['d','detail']:
             detail = input("enter a detail")
-            schedule = schedule.independent_course([detail])   
+            schedule = schedule.independent_course([detail])
         elif command in ['type']:
             phrase = input("enter a type:")
-            schedule = schedule.type([phrase])     
+            schedule = schedule.type([phrase])
         else:
             print('command',command,'is not supported')
             continue
@@ -81,7 +81,7 @@ def topmenu():
         for course in schedule.courses[:10]:
             print_course(course)
         print('\n'*3)
-        
+    
 def print_course(course):
     '''
     print_course prints a brief description of the course

@@ -83,6 +83,6 @@ class Schedule():
         '''course filters the courses by details'''
         return Schedule([course for course in self.courses if re.search(detail[0],course['details'])])
 
-    def type(self,phrase):
-        ''' type filters the courses by type'''
-        return Schedule([course for course in self.courses if re.search(phrase[0],course['type'])])
+    def type(self, phrase):
+        '''type filters the courses by types'''
+        return Schedule([course for course in self.courses if re.search(phrase[0], course["type"])])

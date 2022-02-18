@@ -3,7 +3,7 @@
 
 ## contributors
  Jing Chen
- Lu Hao
+ Lu Hao luhao@brandeis.edu
  Lingyu Liu
  Shuyuan Wang
  
