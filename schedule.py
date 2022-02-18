@@ -86,3 +86,5 @@ class Schedule():
     def coinstructor(self, subject):
         return Schedule([course for course in self.courses if course['subject'] in subject and len(course['coinstructors']) > 0])
 
+    def type(self, phrase):
+        return Schedule([course for course in self.courses if re.search(phrase[0], course["type"])])

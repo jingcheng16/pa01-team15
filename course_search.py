@@ -73,6 +73,9 @@ def topmenu():
         elif command in ['co','coinstructor']:
             subject = input("enter a subject to find the courses have coinstructor in the subject:")   
             schedule = schedule.coinstructor([subject])
+        elif command in ['type']:
+            phrase = input("enter a type:")
+            schedule = schedule.type([phrase])
         else:
             print('command',command,'is not supported')
             continue
@@ -83,6 +86,7 @@ def topmenu():
             print_course(course)
         print('\n'*3)
         
+    
 def print_course(course):
     '''
     print_course prints a brief description of the course
