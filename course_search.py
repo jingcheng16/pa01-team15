@@ -69,9 +69,9 @@ def topmenu():
             schedule = schedule.coursenum([phrase])
         elif command in ['d','detail']:
             detail = input("enter a detail")
-            schedule = schedule.detail([detail]) 
+            schedule = schedule.detail([detail])
         elif command in ['co','coinstructor']:
-            subject = input("enter a subject to find the courses have coinstructor in the subject:")   
+            subject = input("enter a subject to find the courses have coinstructor in the subject:")
             schedule = schedule.coinstructor([subject])
         elif command in ['type']:
             phrase = input("enter a type:")
@@ -85,7 +85,6 @@ def topmenu():
         for course in schedule.courses[:10]:
             print_course(course)
         print('\n'*3)
-    
 def print_course(course):
     '''
     print_course prints a brief description of the course
