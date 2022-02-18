@@ -62,10 +62,13 @@ def topmenu():
             schedule = schedule.description([phrase])
         elif command in ['n','independent']:
             subject = input("enter a subject")
-            schedule = schedule.independentStudy([subject])
+            schedule = schedule.independent_course([subject])
         elif command in ['cn', 'coursenum']:
             phrase = input('enter a coursenum:')
             schedule = schedule.coursenum([phrase])
+        elif command in ['d','detail']:
+            detail = input("enter a detail")
+            schedule = schedule.independent_course([detail])    
         else:
             print('command',command,'is not supported')
             continue
@@ -79,6 +82,7 @@ def topmenu():
 def print_course(course):
     '''
     print_course prints a brief description of the course
+    print_course prints a brief description of the course // test for video
     '''
     print(course['subject'],course['coursenum'],course['section'],
           course['name'],course['term'],course['instructor'])
