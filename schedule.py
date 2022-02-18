@@ -50,28 +50,32 @@ class Schedule():
             return Schedule(sorted(self.courses, key= lambda course: course['subject']))
         print("can't sort by "+str(field)+" yet")
         return self
-    
+
     def title(self, phrase):
         '''title filters the courses by phrase entered by user'''
         return Schedule([course for course in self.courses if re.search(phrase[0],course['name'])])
-    
+
     def description(self, phrase):
         '''description filters the courses by phrase entered by user'''
         return Schedule([course for course in self.courses if re.search(phrase[0],course['description'])])
-    
+
     def independent_course(self, subject):
         '''independent_course filters the courses by if the course is independent study'''
         return Schedule([course for course in self.courses if course['subject'] in subject and course['independent_study'] is True])
 
     def code(self, codes):
         '''code filters the courses by code entered by user'''
-        if(re.search(" ",codes[0])):
-            return Schedule([course for course in self.courses if re.search(course['subject'], codes[0]) and re.search(course['coursenum'], codes[0])]) 
-        
-        return Schedule([course for course in self.courses if course['code'][0] in codes or course['code'][1] in codes]) 
+        if re.search(" ",codes[0]):
+            return Schedule([course for course in self.courses if re.search(course['subject'], codes[0]) and re.search(course['coursenum'], codes[0])])
+        return Schedule([course for course in self.courses if course['code'][0] in codes or course['code'][1] in codes])
 
     def instructor(self, instructor):
         '''instructor filters the courses by instructor's name and email'''
         if len(self.lastname(instructor).courses) > 0:
             return self.lastname(instructor)
         return self.email(instructor)
+
+    def coursenum(self, phrase):
+        '''coursenum filters the courses by its coursenum'''
+        return Schedule([course for course in self.courses if re.search(phrase[0],course['coursenum'])])
+    
