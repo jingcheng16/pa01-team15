@@ -63,6 +63,9 @@ def topmenu():
         elif command in ['n','independent']:
             subject = input("enter a subject")
             schedule = schedule.independent_course([subject])
+        elif command in ['d','detail']:
+            detail = input("enter a detail")
+            schedule = schedule.independent_course([detail])    
         else:
             print('command',command,'is not supported')
             continue

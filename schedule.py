@@ -75,3 +75,7 @@ class Schedule():
         if len(self.lastname(instructor).courses) > 0:
             return self.lastname(instructor)
         return self.email(instructor)
+
+    def detail(self, detail):
+        '''instructor filters the courses by details'''
+        return Schedule([course for course in self.courses if re.search(detail[0],course['details'])])
